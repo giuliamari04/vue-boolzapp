@@ -73,12 +73,12 @@
                 <div class="col-12 flex-grow-1 overflow-y-auto h0">
 
                     <!-- primo contatto -->
-                  <div class="contatto">
+                  <div class="contatto" v-for="(contact,index) in contactsList" :key="index">
                     <div class="img-contatto">
-                      <img src="img/avatar_1.jpg" alt="avatar io" />
+                      <img :src="contact.avatar" :alt="contact.name" />
                     </div>
                     <p class="px-2 mt-3 contatto-text w-75">
-                      <span class="fw-bold">Michele </span>
+                      <span class="fw-bold">{{contact.name}} </span>
                       <br />
                       <span class="">Ultimo messaggio inviato </span>
                     </p>
@@ -87,8 +87,11 @@
                 </div>
               </div>
             </div>
+
+            <!-- sezione chat -->
             <div class="col-12 col-md-8 my-bg-white">
               <div class="row h-100 d-flex flex-column flex-nowrap">
+                <!-- head chat -->
                 <div class="col-12 my-header contatto">
                   <div class="img-contatto">
                     <img src="img/avatar_1.jpg" alt="avatar io" />
@@ -98,9 +101,25 @@
                     <br />
                     <span class="">Ultimo accesso oggi alle 12:47 </span>
                   </p>
+                  <div class="icon">1</div>
+                  <div class="icon">1</div>
+                  <div class="icon">1</div>
                 </div>
+                <!-- main chat -->
                 <div class="col-12 flex-grow-1 overflow-y-auto h0">
-                  contatti
+                  <div class="bg-info chat  flex-nowrap">
+                    <div class="text-recived mx-5 my-2">
+                        1
+                    </div>
+                    <div class="text-sent mx-5 my-2">
+                        2
+                    </div>
+                  </div>
+                  <div class="input-group border-0 flex-nowrap pt-2">
+                    <span class="input-group-text border-0 bg-transparent" id="addon-wrapping"><i class="fa-regular fa-face-smile fa-xl"></i></span>
+                    <input type="text" class="form-control border-0" placeholder="Scrivi messaggio" aria-label="Username" aria-describedby="addon-wrapping">
+                    <span class="p-2"><i class="fa-solid fa-microphone fa-xl"></i></span>
+                  </div>
                 </div>
               </div>
             </div>

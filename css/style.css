@@ -39,6 +39,11 @@ body{
 .h0{
     height: 0;
 }
+
+.chat{
+    height: 90%;
+    padding-top: 20px;
+}
 /* background */
 .my-header{
     background-color: var(--color-headers);
@@ -76,6 +81,31 @@ body{
    color: var(--color-text-grey);
 }
 
+/* chat */
+
+.sent-messages {
+    background-color:var(--color-sent-message); /* Colore sfondo dei messaggi inviati */
+    text-align: right;
+}
+
+.input-box {
+    display: flex;
+    padding: 10px;
+}
+.text-recived{
+    width:250px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.text-sent{
+    right: 0;
+    width:250px;
+    background-color: var(--color-sent-message);
+    border-radius: 10px;
+    padding: 10px;
+}
 .debug{
     border: 2px solid black;
 }
