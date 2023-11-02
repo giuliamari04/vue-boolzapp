@@ -51,7 +51,7 @@
                   <div
                     class="img-contatto text-center bg-light d-flex justify-content-center align-items-center"
                   >
-                    <i class="fa-solid fa-bell-slash"></i>
+                    <i class="fa-solid fa-bell-slash icon"></i>
                   </div>
                   <span class="px-2 fw-bold w-75"
                     >Ricevi notifiche di nuovi messaggi
@@ -159,12 +159,7 @@
                     ><i class="fa-regular fa-face-smile fa-xl"></i
                   ></span>
 
-                  <input
-                    type="text"
-                    class="form-control border-0"
-                    placeholder="Scrivi messaggio"
-                    aria-label="Username"
-                  />
+                  <input type="text" class="form-control border-0" placeholder="Scrivi messaggio" aria-label="Username" v-model="newMessage" @keyup.enter="sendMessage"/>
                   <span class="p-2"
                     ><i class="fa-solid fa-microphone fa-xl"></i
                   ></span>

@@ -181,7 +181,6 @@ createApp({
         }
     },
     created() {
-        // Assegna il primo contatto nell'array quando la pagina si carica.
         this.selectedContact = this.contactsList[0];
     },
     methods:{
@@ -189,10 +188,33 @@ createApp({
         console.log(contactId);
         this.selectedContact = this.contactsList.find(contact => contact.id === contactId);
         console.log(this.selectedContact)
-  
-        
-       }
+       },
+       sendMessage() {
+        if (this.newMessage.trim() !== '') {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleString();
+            const newMessage = {
+                date: formattedDate,
+                message: this.newMessage,
+                status: 'sent',
+            };
+            this.selectedContact.messages.push(newMessage);
+            this.newMessage = '';
+            setTimeout(this.sendAutoReply, 1000);
+        }
     },
+    sendAutoReply() {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleString();
+        const autoReply = {
+            date: formattedDate,
+            message: 'ciaoone',
+            status: 'received',
+        };
+        this.selectedContact.messages.push(autoReply);
+    },
+    },
+
     computed:{
 
     }
