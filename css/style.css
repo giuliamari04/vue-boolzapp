@@ -1,0 +1,81 @@
+/* general */
+:root {
+	--color-white: #ffffff;
+	--color-dark-text: #161012;
+	--color-dark-grey: #6b7376;
+	--color-text-grey: #b6bbc1;
+	--color-headers: #eaeaea;
+	--color-contact-hover: #e9ebeb;
+	--color-light-icons: #b1b1b1;
+	--color-sent-message: #d5f9ba;
+	--color-notification: #8edafc;
+    --background: linear-gradient(0deg, rgba(220,219,211,1) 85%, rgba(0,150,136,1) 85%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+/* contenitori */
+
+.wrapper{
+ height: 100vh;
+ width: 100%;
+ background: rgb(220,219,211);
+ background: var(--background);
+ padding:20px
+}
+
+.my-bg-white{
+    background-color: var(--color-white);
+   
+}
+.h0{
+    height: 0;
+}
+/* background */
+.my-header{
+    background-color: var(--color-headers);
+}
+
+.my-bg-info{
+    background-color: var(--color-notification);
+}
+
+/* contatti */
+.contatto{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.img-contatto{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;  
+    overflow: hidden;
+}
+
+.img-contatto img{
+    width: 100%;
+  
+}
+
+.contatto-text{
+    line-height: 1.2;
+}
+
+.orario{
+   margin-top: -40px;
+   color: var(--color-text-grey);
+}
+
+.debug{
+    border: 2px solid black;
+}

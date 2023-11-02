@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Bollzapp</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <div class="container h-100">
+          <div class="row h-100 flex-nowrap">
+            <div class="col-12 col-md-4 my-bg-white">
+              <div class="row h-100 d-flex flex-column flex-nowrap">
+                <!-- colonna profilo -->
+                <div class="col-12 my-header contatto py-2">
+                  <div class="img-contatto">
+                    <img src="img/avatar_io.jpg" alt="avatar io" />
+                  </div>
+                  <span class="px-1 fw-bold w-75">Sara</span>
+                  <div class="icon">1</div>
+                  <div class="icon">1</div>
+                  <div class="icon">1</div>
+                </div>
+                <!-- colonna notifiche -->
+                <div class="col-12 contatto my-bg-info py-2">
+                  <div
+                    class="img-contatto text-center bg-light d-flex justify-content-center align-items-center"
+                  >
+                    <i class="fa-solid fa-bell-slash"></i>
+                  </div>
+                  <span class="px-2 fw-bold w-75"
+                    >Ricevi notifiche di nuovi messaggi
+                    <br />
+                    <a href="" class="fw-normal">Attiva notifiche desktop</a>
+                  </span>
+                </div>
+                <!-- colonna search -->
+                <div class="col-12">
+                  <div class="input-group flex-nowrap border-0">
+                    <span
+                      class="input-group-text border-0 bg-transparent"
+                      id="addon-wrapping"
+                      ><i class="fa-solid fa-magnifying-glass"></i
+                    ></span>
+                    <input
+                      type="text"
+                      class="form-control border-0"
+                      placeholder="Cerca o inizia una nuova chat"
+                      aria-label="Username"
+                      aria-describedby="addon-wrapping"
+                    />
+                  </div>
+                </div>
+                <!-- colonna contatti -->
+                <div class="col-12 flex-grow-1 overflow-y-auto h0">
+
+                    <!-- primo contatto -->
+                  <div class="contatto">
+                    <div class="img-contatto">
+                      <img src="img/avatar_1.jpg" alt="avatar io" />
+                    </div>
+                    <p class="px-2 mt-3 contatto-text w-75">
+                      <span class="fw-bold">Michele </span>
+                      <br />
+                      <span class="">Ultimo messaggio inviato </span>
+                    </p>
+                    <span class="orario">12:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-8 my-bg-white">
+              <div class="row h-100 d-flex flex-column flex-nowrap">
+                <div class="col-12 my-header contatto">
+                  <div class="img-contatto">
+                    <img src="img/avatar_1.jpg" alt="avatar io" />
+                  </div>
+                  <p class="px-2 mt-3 contatto-text w-75">
+                    <span class="fw-bold">Michele </span>
+                    <br />
+                    <span class="">Ultimo accesso oggi alle 12:47 </span>
+                  </p>
+                </div>
+                <div class="col-12 flex-grow-1 overflow-y-auto h0">
+                  contatti
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/script.js" type="module"></script>
+  </body>
+</html>
