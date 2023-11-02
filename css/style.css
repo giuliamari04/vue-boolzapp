@@ -43,6 +43,7 @@ body{
 .chat{
     height: 90%;
     padding-top: 20px;
+  
 }
 /* background */
 .my-header{
@@ -54,11 +55,25 @@ body{
 }
 
 /* contatti */
+.icon{
+    color: var(--color-light-icons);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.icon:hover{
+    color: var(--color-dark-grey);
+}
 .contatto{
     height: 70px;
     display: flex;
     align-items: center;
     align-content: center;
+}
+
+.contatto-lista:hover{
+    background-color: var(--color-contact-hover);
+    cursor: pointer;
 }
 .img-contatto{
     width: 50px;
@@ -92,19 +107,148 @@ body{
     display: flex;
     padding: 10px;
 }
-.text-recived{
+
+/* general */
+:root {
+	--color-white: #ffffff;
+	--color-dark-text: #161012;
+	--color-dark-grey: #6b7376;
+	--color-text-grey: #b6bbc1;
+	--color-headers: #eaeaea;
+	--color-contact-hover: #e9ebeb;
+	--color-light-icons: #b1b1b1;
+	--color-sent-message: #d5f9ba;
+	--color-notification: #8edafc;
+    --background: linear-gradient(0deg, rgba(220,219,211,1) 85%, rgba(0,150,136,1) 85%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+/* contenitori */
+
+.wrapper{
+ height: 100vh;
+ width: 100%;
+ background: rgb(220,219,211);
+ background: var(--background);
+ padding:20px
+}
+
+.my-bg-white{
+    background-color: var(--color-white);
+   
+}
+.h0{
+    height: 0;
+}
+
+.chat{
+    height: 90%;
+    padding-top: 20px;
+  
+}
+/* background */
+.my-header{
+    background-color: var(--color-headers);
+}
+
+.my-bg-info{
+    background-color: var(--color-notification);
+}
+
+.my-bg-chat{
+    background-color: rgb(253, 137, 253);
+}
+/* contatti */
+.icon{
+    color: var(--color-light-icons);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.icon:hover{
+    color: var(--color-dark-grey);
+}
+.contatto{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.contatto-lista:hover{
+    background-color: var(--color-contact-hover);
+    cursor: pointer;
+}
+.img-contatto{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;  
+    overflow: hidden;
+}
+
+.img-contatto img{
+    width: 100%;
+  
+}
+
+.contatto-text{
+    line-height: 1.2;
+}
+
+.orario{
+   margin-top: -40px;
+   color: var(--color-text-grey);
+}
+
+/* chat */
+
+.text-received{
     width:250px;
     background-color: var(--color-white);
     border-radius: 10px;
     padding: 10px;
+    float: left;
+    clear: both;
 }
 
 .text-sent{
-    right: 0;
     width:250px;
     background-color: var(--color-sent-message);
     border-radius: 10px;
     padding: 10px;
+    float: right;
+    display: flex;
+    clear: both;
+    
+}
+.debug{
+    border: 2px solid black;
+}
+
+.text-received{
+    width:250px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 10px;
+    float: left;
+}
+
+.text-sent{
+    width:250px;
+    background-color: var(--color-sent-message);
+    border-radius: 10px;
+    padding: 10px;
+    float: right;
+    
 }
 .debug{
     border: 2px solid black;

@@ -175,12 +175,23 @@ createApp({
                     ],
                 }
             ],
+            selectedContact: null ,
             // contacts:contactsList,
 
         }
     },
+    created() {
+        // Assegna il primo contatto nell'array quando la pagina si carica.
+        this.selectedContact = this.contactsList[0];
+    },
     methods:{
-       
+       seleziona(contactId){
+        console.log(contactId);
+        this.selectedContact = this.contactsList.find(contact => contact.id === contactId);
+        console.log(this.selectedContact)
+  
+        
+       }
     },
     computed:{
 

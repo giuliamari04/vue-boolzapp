@@ -27,6 +27,8 @@
       <div class="wrapper">
         <div class="container h-100">
           <div class="row h-100 flex-nowrap">
+            <!-- COLONNA LISTA CONTATTI -->
+
             <div class="col-12 col-md-4 my-bg-white">
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- colonna profilo -->
@@ -35,10 +37,15 @@
                     <img src="img/avatar_io.jpg" alt="avatar io" />
                   </div>
                   <span class="px-1 fw-bold w-75">Sara</span>
-                  <div class="icon">1</div>
-                  <div class="icon">1</div>
-                  <div class="icon">1</div>
+                  <div class="icon">
+                    <i class="fa-solid fa-circle-notch"></i>
+                  </div>
+                  <div class="icon"><i class="fa-solid fa-message"></i></div>
+                  <div class="icon">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
                 </div>
+
                 <!-- colonna notifiche -->
                 <div class="col-12 contatto my-bg-info py-2">
                   <div
@@ -52,14 +59,15 @@
                     <a href="" class="fw-normal">Attiva notifiche desktop</a>
                   </span>
                 </div>
+
                 <!-- colonna search -->
                 <div class="col-12">
-                  <div class="input-group flex-nowrap border-0">
+                  <div class="input-group py-2 flex-nowrap border-0">
                     <span
                       class="input-group-text border-0 bg-transparent"
                       id="addon-wrapping"
-                      ><i class="fa-solid fa-magnifying-glass"></i
-                    ></span>
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
                     <input
                       type="text"
                       class="form-control border-0"
@@ -69,18 +77,23 @@
                     />
                   </div>
                 </div>
+
                 <!-- colonna contatti -->
                 <div class="col-12 flex-grow-1 overflow-y-auto h0">
-
-                    <!-- primo contatto -->
-                  <div class="contatto" v-for="(contact,index) in contactsList" :key="index">
+                  <!-- primo contatto -->
+                  <div
+                    class="contatto w-100 contatto-lista"
+                    v-for="(contact,index) in contactsList"
+                    :key="index"
+                    @click="seleziona(contact.id)"
+                  >
                     <div class="img-contatto">
                       <img :src="contact.avatar" :alt="contact.name" />
                     </div>
                     <p class="px-2 mt-3 contatto-text w-75">
-                      <span class="fw-bold">{{contact.name}} </span>
+                      <span class="fw-bold">{{contact.name}}</span>
                       <br />
-                      <span class="">Ultimo messaggio inviato </span>
+                      <span class="">Ultimo messaggio inviato</span>
                     </p>
                     <span class="orario">12:00</span>
                   </div>
@@ -88,39 +101,75 @@
               </div>
             </div>
 
+            <!-- COLONNA SEZIONE CHAT -->
+
             <!-- sezione chat -->
             <div class="col-12 col-md-8 my-bg-white">
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- head chat -->
-                <div class="col-12 my-header contatto">
+                <div class="col-12 my-header contatto" v-if="selectedContact">
                   <div class="img-contatto">
-                    <img src="img/avatar_1.jpg" alt="avatar io" />
+                    <img
+                      :src="selectedContact.avatar"
+                      :alt="selectedContact.name"
+                    />
                   </div>
                   <p class="px-2 mt-3 contatto-text w-75">
-                    <span class="fw-bold">Michele </span>
+                    <span class="fw-bold">{{selectedContact.name}}</span>
                     <br />
-                    <span class="">Ultimo accesso oggi alle 12:47 </span>
+                    <span class="">Ultimo accesso oggi alle 12:47</span>
                   </p>
-                  <div class="icon">1</div>
-                  <div class="icon">1</div>
-                  <div class="icon">1</div>
+                  <!-- icone -->
+                  <div class="d-flex w-25 justify-content-end">
+                    <div class="icon">
+                      <i class="fa-solid fa-magnifying-glass px-2"></i>
+                    </div>
+                    <div class="icon">
+                      <i class="fa-solid fa-paperclip px-2"></i>
+                    </div>
+                    <div class="icon">
+                      <i class="fa-solid fa-ellipsis-vertical px-2"></i>
+                    </div>
+                  </div>
                 </div>
+
                 <!-- main chat -->
-                <div class="col-12 flex-grow-1 overflow-y-auto h0">
-                  <div class="bg-info chat  flex-nowrap">
-                    <div class="text-recived mx-5 my-2">
-                        1
+
+                <div class="col-12 flex-grow-1 my-bg-chat p-0 overflow-y-auto h0">
+                  <div class=" chat">
+                    <div class="message" v-for="(message, index) in selectedContact.messages" :key="index">
+                    
+                      <div v-if="message.status === 'received'"  class="text-received mx-5 my-2">
+                        <div>
+                              {{ message.message }}
+                        </div>
+                      
+                      </div>
+                      <div v-if="message.status === 'sent'" class="text-sent mx-5 my-2">
+                        {{ message.message }}
+                      </div>
                     </div>
-                    <div class="text-sent mx-5 my-2">
-                        2
-                    </div>
-                  </div>
-                  <div class="input-group border-0 flex-nowrap pt-2">
-                    <span class="input-group-text border-0 bg-transparent" id="addon-wrapping"><i class="fa-regular fa-face-smile fa-xl"></i></span>
-                    <input type="text" class="form-control border-0" placeholder="Scrivi messaggio" aria-label="Username" aria-describedby="addon-wrapping">
-                    <span class="p-2"><i class="fa-solid fa-microphone fa-xl"></i></span>
                   </div>
                 </div>
+
+                <!-- barra di input -->
+                <div class="">
+                <div class="input-group border-0 debug flex-nowrap  py-2">
+                  <span class="input-group-text border-0 bg-transparent"
+                    ><i class="fa-regular fa-face-smile fa-xl"></i
+                  ></span>
+
+                  <input
+                    type="text"
+                    class="form-control border-0"
+                    placeholder="Scrivi messaggio"
+                    aria-label="Username"
+                  />
+                  <span class="p-2"
+                    ><i class="fa-solid fa-microphone fa-xl"></i
+                  ></span>
+                </div>
+            </div>
               </div>
             </div>
           </div>
