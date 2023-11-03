@@ -177,16 +177,22 @@ createApp({
             ],
             selectedContact: null ,
             // contacts:contactsList,
+            //searchContact:'',
+            //activeContactIndex:0,
+            newMessage: '',
+            activeContactId: null,
 
         }
     },
     created() {
         this.selectedContact = this.contactsList[0];
     },
+
     methods:{
        seleziona(contactId){
         console.log(contactId);
         this.selectedContact = this.contactsList.find(contact => contact.id === contactId);
+        this.activeContactId = contactId;
         console.log(this.selectedContact)
        },
        sendMessage() {
@@ -212,6 +218,16 @@ createApp({
             status: 'received',
         };
         this.selectedContact.messages.push(autoReply);
+    },
+    formatTime(dateTime) {
+        const parts = dateTime.split(' '); 
+        //console.log (parts)
+        if (parts.length === 2) {
+            const timePart = parts[1];
+            const [hour, minute] = timePart.split(':');
+            return `${hour}:${minute}`;
+        }
+        return 'Formato data non valido';
     },
     },
 

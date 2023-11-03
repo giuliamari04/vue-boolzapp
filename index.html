@@ -29,7 +29,7 @@
           <div class="row h-100 flex-nowrap">
             <!-- COLONNA LISTA CONTATTI -->
 
-            <div class="col-12 col-md-4 my-bg-white">
+            <div class="col-12 col-md-4 my-bg-white" >
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- colonna profilo -->
                 <div class="col-12 my-header contatto py-2">
@@ -56,17 +56,14 @@
                   <span class="px-2 fw-bold w-75"
                     >Ricevi notifiche di nuovi messaggi
                     <br />
-                    <a href="" class="fw-normal">Attiva notifiche desktop</a>
+                    <a href="#" class="fw-normal">Attiva notifiche desktop</a>
                   </span>
                 </div>
 
                 <!-- colonna search -->
                 <div class="col-12">
                   <div class="input-group py-2 flex-nowrap border-0">
-                    <span
-                      class="input-group-text border-0 bg-transparent"
-                      id="addon-wrapping"
-                      ><i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="input-group-text border-0 bg-transparent"><i class="fa-solid fa-magnifying-glass"></i>
                     </span>
                     <input
                       type="text"
@@ -74,28 +71,25 @@
                       placeholder="Cerca o inizia una nuova chat"
                       aria-label="Username"
                       aria-describedby="addon-wrapping"
+
                     />
                   </div>
                 </div>
 
                 <!-- colonna contatti -->
-                <div class="col-12 flex-grow-1 overflow-y-auto h0">
-                  <!-- primo contatto -->
-                  <div
-                    class="contatto w-100 contatto-lista"
-                    v-for="(contact,index) in contactsList"
-                    :key="index"
-                    @click="seleziona(contact.id)"
-                  >
+                <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
+                  
+                  <div class="contatto w-100 contatto-lista px-2"
+                    v-for="(contact,index) in contactsList" :key="contact.id" @click="seleziona(contact.id)" :class="{ 'active': contact.id === activeContactId }">
                     <div class="img-contatto">
                       <img :src="contact.avatar" :alt="contact.name" />
                     </div>
                     <p class="px-2 mt-3 contatto-text w-75">
                       <span class="fw-bold">{{contact.name}}</span>
                       <br />
-                      <span class="">Ultimo messaggio inviato</span>
+                      <span class="">{{contact.messages[contact.messages.length -1].message}}</span>
                     </p>
-                    <span class="orario">12:00</span>
+                    <span class="orario small">{{ formatTime(contact.messages[contact.messages.length-1].date) }}</span>
                   </div>
                 </div>
               </div>
@@ -104,7 +98,7 @@
             <!-- COLONNA SEZIONE CHAT -->
 
             <!-- sezione chat -->
-            <div class="col-12 col-md-8 my-bg-white">
+            <div class="col-12 col-md-8 my-bg-white" >
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- head chat -->
                 <div class="col-12 my-header contatto" v-if="selectedContact">
@@ -117,7 +111,7 @@
                   <p class="px-2 mt-3 contatto-text w-75">
                     <span class="fw-bold">{{selectedContact.name}}</span>
                     <br />
-                    <span class="">Ultimo accesso oggi alle 12:47</span>
+                    <span class="">Ultimo accesso oggi alle {{ formatTime(selectedContact.messages[selectedContact.messages.length-1].date) }} </span>
                   </p>
                   <!-- icone -->
                   <div class="d-flex w-25 justify-content-end">
@@ -153,13 +147,13 @@
                 </div>
 
                 <!-- barra di input -->
-                <div class="">
+                <div class="bg-input-bar">
                 <div class="input-group border-0 debug flex-nowrap  py-2">
                   <span class="input-group-text border-0 bg-transparent"
                     ><i class="fa-regular fa-face-smile fa-xl"></i
                   ></span>
 
-                  <input type="text" class="form-control border-0" placeholder="Scrivi messaggio" aria-label="Username" v-model="newMessage" @keyup.enter="sendMessage"/>
+                  <input type="text" class="form-control border-0 rounded-2" placeholder="Scrivi messaggio" aria-label="Username" v-model="newMessage" @keyup.enter="sendMessage"/>
                   <span class="p-2"
                     ><i class="fa-solid fa-microphone fa-xl"></i
                   ></span>

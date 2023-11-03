@@ -132,6 +132,9 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
+.active{
+    background-color:var(--color-dark-grey)!important;
+}
 /* contenitori */
 
 .wrapper{
@@ -153,7 +156,11 @@ body{
 .chat{
     height: 90%;
     padding-top: 20px;
-  
+    width: 100%;
+}
+
+.col-12.col-md-8{
+    display: block;
 }
 /* background */
 .my-header{
@@ -166,6 +173,10 @@ body{
 
 .my-bg-chat{
     background-color: rgb(253, 137, 253);
+}
+
+.bg-input-bar{
+    background-color: var(--color-text-grey);
 }
 /* contatti */
 .icon{
@@ -248,8 +259,33 @@ body{
     border-radius: 10px;
     padding: 10px;
     float: right;
+    word-wrap: break-word;
     
+}
+
+.fa-microphone:active{
+    color: red;
 }
 .debug{
     border: 2px solid black;
+}
+@media screen and (max-width: 1024px) {
+    body{
+        font-size: 0.8em;
+    }
+
+}
+@media screen and (max-width: 767px) {
+    .col-12.col-md-8 {
+        display: none;
+      }
+    
+      .container{
+      margin: 0 auto;
+      overflow-x: hidden;
+       
+       
+      }
+      /* Mostra solo la lista dei contatti a larghezza <= 767px */
+      
 }
