@@ -179,6 +179,14 @@ createApp({
             // contacts:contactsList,
             searchContact:'',
             //activeContactIndex:0,
+            frasi: [
+                "La conoscenza è potere.",
+                "ok",
+                "ciaoone",
+                "fantastico!",
+                "perfetto",
+                "neh",
+              ],
             newMessage: '',
             activeContactId: null,
             
@@ -211,12 +219,16 @@ createApp({
             setTimeout(this.sendAutoReply, 1000);
         }
     },
+    getRandomFrasi() {
+        const randomIndex = Math.floor(Math.random() * this.frasi.length);
+        return this.frasi[randomIndex];
+      },
     sendAutoReply() {
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleString();
         const autoReply = {
             date: formattedDate,
-            message: 'ciaoone',
+            message: this.getRandomFrasi(),
             status: 'received',
             showDropdown:false,
         };
@@ -245,7 +257,7 @@ createApp({
         const index = this.selectedContact.messages.indexOf(message);
         this.selectedContact.messages.splice(index, 1);
       },
-      
+            
     },
 
     computed:{
