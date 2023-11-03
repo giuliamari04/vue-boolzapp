@@ -179,6 +179,7 @@ createApp({
             // contacts:contactsList,
             searchContact:'',
             //activeContactIndex:0,
+            lastID:8,
             frasi: [
                 "La conoscenza è potere.",
                 "ok",
@@ -208,14 +209,19 @@ createApp({
         if (this.newMessage.trim() !== '') {
             const currentDate = new Date();
             const formattedDate = currentDate.toLocaleString();
+            this.lastID=this.lastID+1;
             const newMessage = {
                 date: formattedDate,
                 message: this.newMessage,
+                id:this.lastID,
                 status: 'sent',
                 showDropdown:false,
             };
+
+            console.log(this.lastID);
             this.selectedContact.messages.push(newMessage);
             this.newMessage = '';
+            
             setTimeout(this.sendAutoReply, 1000);
         }
     },

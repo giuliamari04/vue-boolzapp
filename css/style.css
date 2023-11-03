@@ -254,9 +254,7 @@ body{
     clear: both;
     
 }
-.debug{
-    border: 2px solid black;
-}
+
 
 .text-received{
     width:250px;
@@ -267,6 +265,7 @@ body{
 }
 
 .text-sent{
+    position: relative;
     width:250px;
     background-color: var(--color-sent-message);
     border-radius: 10px;
@@ -276,15 +275,13 @@ body{
     
 }
 .dropdown{
-    right:10%;
-    margin-top: 40px
+    right:15px;
+    margin-top: 30px;
 }
 .fa-microphone:active{
     color: red;
 }
-.debug{
-    border: 2px solid black;
-}
+
 @media screen and (max-width: 1024px) {
     body{
         font-size: 0.8em;
