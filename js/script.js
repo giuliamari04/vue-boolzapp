@@ -273,5 +273,11 @@ createApp({
 
     computed:{
 
-    }
+    },
+    mounted(){
+        setTimeout(() => {
+            // Nascondi la splash page
+            document.querySelector('.splash').style.display = 'none';
+          }, 1000);
+    },
 }).mount('#app');

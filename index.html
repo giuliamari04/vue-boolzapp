@@ -23,6 +23,9 @@
     <title>Bollzapp</title>
   </head>
   <body>
+    <div class="splash">
+      <h1>Bollzapp</h1>
+    </div>
     <div id="app">
       <div class="wrapper">
         <div class="container h-100">
@@ -110,7 +113,8 @@
             <!-- COLONNA SEZIONE CHAT -->
 
             <!-- sezione chat -->
-            <div class="col-12 col-md-8 my-bg-white border-main">
+            <div  class="col-12 col-md-8 my-bg-white border-main pt-5 fs-2":class="{ 'd-none': activeContactId }"> <div class="text-center ">Ciao! <br> <h4 class="text-primary">Benvenuto su Bollzapp!</h4><span>Clicca su un contatto per aprire la chat!</span></div></div>
+            <div class="col-12 col-md-8 my-bg-white border-main " :class="{ 'd-none': !activeContactId }">
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- head chat -->
                 <div class="col-12 my-header contatto" v-if="selectedContact">
