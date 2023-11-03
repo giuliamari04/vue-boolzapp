@@ -158,21 +158,50 @@
                         v-if="message.status === 'received'"
                         class="text-received mx-5 my-2"
                       >
-                        <div>{{ message.message }}</div>
-                      </div>
-                      <div v-if="message.status === 'sent'" class="text-sent mx-5 my-2">
-                        {{ message.message }}
-                        <button class="btn" @click="showdropdown(index)">
-                            <i class="fa-solid fa-chevron-down position-relative"></i>
-                        </button>
-                    
-                        <div v-if="message.showDropdown" class="position-absolute dropdown bg-light">
-                            <div class="px-3 py-2">
-                                <a href="#" class="text-decoration-none text-black" @click="deleteMessage(message)">Cancella messaggio</a><br />
-                                <a href="#" class="text-decoration-none text-black">info</a>
-                            </div>
+                        <div class="w-100 d-flex justify-content-between">
+                          <span>{{ message.message }}</span>
+                          <span class="small orario-msg"
+                            >{{
+                            formatTime(selectedContact.messages[selectedContact.messages.length-1].date)
+                            }}</span
+                          >
                         </div>
-                    </div>
+                      </div>
+                      <div
+                        v-if="message.status === 'sent'"
+                        class="text-sent mx-5 my-2"
+                      >
+                      <div class="w-100 d-flex justify-content-between">
+                        <span>{{ message.message }}</span>
+                        <span class="small orario-msg"
+                          >{{
+                          formatTime(selectedContact.messages[selectedContact.messages.length-1].date)
+                          }}</span
+                        >
+                      </div>
+                        <button class="btn" @click="showdropdown(index)">
+                          <i
+                            class="fa-solid fa-chevron-down position-relative"
+                          ></i>
+                        </button>
+
+                        <div
+                          v-if="message.showDropdown"
+                          class="position-absolute dropdown bg-light"
+                        >
+                          <div class="px-3 py-2">
+                            <a
+                              href="#"
+                              class="text-decoration-none text-black"
+                              @click="deleteMessage(message)"
+                              >Cancella messaggio</a
+                            ><br />
+                            <a href="#" class="text-decoration-none text-black"
+                              >info</a
+                            >
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

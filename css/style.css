@@ -225,6 +225,14 @@ body{
    color: var(--color-text-grey);
 }
 
+.orario-msg{
+    margin-bottom:-10px;
+    color: var(--color-text-grey);
+    font-size: 0.8em;
+    display: flex;
+    align-items: end;
+ }
+
 /* chat */
 
 .text-received{
