@@ -181,6 +181,7 @@ createApp({
             //activeContactIndex:0,
             newMessage: '',
             activeContactId: null,
+            
 
         }
     },
@@ -203,6 +204,7 @@ createApp({
                 date: formattedDate,
                 message: this.newMessage,
                 status: 'sent',
+                showDropdown:false,
             };
             this.selectedContact.messages.push(newMessage);
             this.newMessage = '';
@@ -216,6 +218,7 @@ createApp({
             date: formattedDate,
             message: 'ciaoone',
             status: 'received',
+            showDropdown:false,
         };
         this.selectedContact.messages.push(autoReply);
     },
@@ -235,6 +238,14 @@ createApp({
             return contact.name.toLowerCase().includes(search);
         });
     },
+    showdropdown(index){ 
+        this.selectedContact.messages[index].showDropdown = !this.selectedContact.messages[index].showDropdown;
+    },
+    deleteMessage(message) {
+        const index = this.selectedContact.messages.indexOf(message);
+        this.selectedContact.messages.splice(index, 1);
+      },
+      
     },
 
     computed:{

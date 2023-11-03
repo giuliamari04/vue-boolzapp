@@ -267,7 +267,10 @@ body{
     word-wrap: break-word;
     
 }
-
+.dropdown{
+    right:10%;
+    margin-top: 40px
+}
 .fa-microphone:active{
     color: red;
 }
