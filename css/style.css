@@ -112,7 +112,7 @@ body{
 :root {
 	--color-white: #ffffff;
 	--color-dark-text: #161012;
-	--color-dark-grey: #6b7376;
+	--color-dark-grey: #868f92;
 	--color-text-grey: #b6bbc1;
 	--color-headers: #eaeaea;
 	--color-contact-hover: #e9ebeb;
@@ -183,6 +183,11 @@ body{
     color: var(--color-light-icons);
     padding-right: 5px;
     padding-left: 5px;
+    cursor: pointer;
+}
+
+.my-dark-gray{
+    color: var(--color-dark-grey);
 }
 
 .icon:hover{
