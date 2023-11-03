@@ -152,7 +152,9 @@ body{
 .h0{
     height: 0;
 }
-
+.border-main{
+   box-shadow: -1px 0px 3px 0px gray;
+}
 .chat{
     height: 90%;
     padding-top: 20px;
@@ -172,7 +174,7 @@ body{
 }
 
 .my-bg-chat{
-    background-color: rgb(253, 137, 253);
+    background-image: url(../img/mine.jpg);
 }
 
 .bg-input-bar{
