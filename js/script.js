@@ -177,7 +177,7 @@ createApp({
             ],
             selectedContact: null ,
             // contacts:contactsList,
-            //searchContact:'',
+            searchContact:'',
             //activeContactIndex:0,
             newMessage: '',
             activeContactId: null,
@@ -228,6 +228,12 @@ createApp({
             return `${hour}:${minute}`;
         }
         return 'Formato data non valido';
+    },
+    filterContacts() {
+        const search = this.searchContact.toLowerCase();
+        return this.contactsList.filter((contact) => {
+            return contact.name.toLowerCase().includes(search);
+        });
     },
     },
 

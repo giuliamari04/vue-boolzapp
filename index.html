@@ -71,7 +71,7 @@
                       placeholder="Cerca o inizia una nuova chat"
                       aria-label="Username"
                       aria-describedby="addon-wrapping"
-
+                      v-model="searchContact"
                     />
                   </div>
                 </div>
@@ -80,7 +80,9 @@
                 <div class="col-12 flex-grow-1 overflow-y-auto h0 p-0">
                   
                   <div class="contatto w-100 contatto-lista px-2"
-                    v-for="(contact,index) in contactsList" :key="contact.id" @click="seleziona(contact.id)" :class="{ 'active': contact.id === activeContactId }">
+                    v-for="(contact,index) in filterContacts()" 
+                    :key="contact.id" @click="seleziona(contact.id)" 
+                    :class="{ 'active': contact.id === activeContactId }" >
                     <div class="img-contatto">
                       <img :src="contact.avatar" :alt="contact.name" />
                     </div>
