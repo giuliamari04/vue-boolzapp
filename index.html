@@ -32,7 +32,7 @@
           <div class="row h-100 flex-nowrap">
             <!-- COLONNA LISTA CONTATTI -->
 
-            <div class="col-12 col-md-4 my-bg-white">
+            <div class="col-12 col-md-4 my-bg-white d-md-block" :class="{'d-none': showChat}">
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- colonna profilo -->
                 <div class="col-12 my-header contatto py-2">
@@ -113,8 +113,11 @@
             <!-- COLONNA SEZIONE CHAT -->
 
             <!-- sezione chat -->
-            <div  class="col-12 col-md-8 my-bg-white border-main pt-5 fs-2":class="{ 'd-none': activeContactId }"> <div class="text-center ">Ciao! <br> <h4 class="text-primary">Benvenuto su Bollzapp!</h4><span>Clicca su un contatto per aprire la chat!</span></div></div>
-            <div class="col-12 col-md-8 my-bg-white border-main " :class="{ 'd-none': !activeContactId }">
+            <div  class="intestazione col-md-8 my-bg-white border-main pt-5 " :class="{ 'd-none': activeContactId }":class="{'d-none': !showChat}"> 
+              <div class="text-center ">Ciao! <br> <h4 class="text-primary">Benvenuto su Bollzapp!</h4><span>Clicca su un contatto per aprire la chat!</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-8 my-bg-white border-main " :class="{ 'd-none': !activeContactId }" :class="{'d-none': !showChat}">
               <div class="row h-100 d-flex flex-column flex-nowrap">
                 <!-- head chat -->
                 <div class="col-12 my-header contatto" v-if="selectedContact">
@@ -136,6 +139,9 @@
                   <!-- icone -->
                   <div class="d-flex w-25 justify-content-end">
                     <div class="icon">
+                      <i class="fa-solid d-sm-none fa-arrow-left px-2" @click="closeChat"></i>
+                    </div>
+                    <div class="icon ">
                       <i class="fa-solid fa-magnifying-glass px-2"></i>
                     </div>
                     <div class="icon">

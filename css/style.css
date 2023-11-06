@@ -186,8 +186,8 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgb(63,94,251);
     background: radial-gradient(circle, rgba(220,219,211,1) 0%, rgba(0,150,136,1), rgba(3,0,1,1) 100%);
     display: flex;
@@ -334,16 +334,15 @@ body{
 
 }
 @media screen and (max-width: 767px) {
-    .col-12.col-md-8 {
-        display: none;
-      }
-    
-      .container{
-      margin: 0 auto;
-      overflow-x: hidden;
-       
-       
-      }
-      /* Mostra solo la lista dei contatti a larghezza <= 767px */
-      
+.contatto-text {
+    width: auto;
+}
+
+.col-12 .col-md-4{
+    overflow-y: hidden;
+}
+
+.intestazione{
+    display: none;
+}
 }

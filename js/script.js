@@ -194,6 +194,7 @@ createApp({
               ],
             newMessage: '',
             activeContactId: null, //obj
+            showChat:false,
             
 
         }
@@ -209,6 +210,7 @@ createApp({
         this.activeContactId = contactId;
         console.log(this.selectedContact);
         console.log(this.activeContactId);
+        this.showChat=true;
        },
        sendMessage() {
         if (this.newMessage.trim() !== '') {
@@ -268,6 +270,11 @@ createApp({
         const index = this.selectedContact.messages.indexOf(message);
         this.selectedContact.messages.splice(index, 1);
       },
+     
+      closeChat() {
+        this.showChat = false;
+        this.activeContactId = null;
+      }
             
     },
 
