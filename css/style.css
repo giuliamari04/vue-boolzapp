@@ -118,6 +118,7 @@ body{
 	--color-contact-hover: #e9ebeb;
 	--color-light-icons: #b1b1b1;
 	--color-sent-message: #d5f9ba;
+    --color-received-message:white;
 	--color-notification: #8edafc;
     --background: linear-gradient(0deg, rgba(220,219,211,1) 85%, rgba(0,150,136,1) 85%);
 }
@@ -130,11 +131,29 @@ body{
 
 body{
     font-family: 'Lato', sans-serif;
+    color: var(--color-dark-text);
 }
 
 .active{
     background-color:var(--color-dark-grey)!important;
 }
+
+.text-darkmode{
+    color: var(--color-dark-text);
+}
+
+.larger-font {
+    font-size: 1.2em;
+  }
+  .smaller-font {
+    font-size: 0.8em;
+  }
+  
+  
+  
+  
+  
+  
 /* contenitori */
 
 .wrapper{
@@ -224,6 +243,7 @@ body{
     display: flex;
     align-items: center;
     align-content: center;
+    color: var(--color-dark-text);
 }
 
 .contatto-lista:hover{
@@ -244,6 +264,7 @@ body{
 
 .contatto-text{
     line-height: 1.2;
+    
 }
 
 .orario{
@@ -260,6 +281,9 @@ body{
  }
 
 /* chat */
+.intestazione{
+    color: var(--color-dark-text);
+}
 ::-webkit-scrollbar {
     width: 8px;
   }
@@ -303,7 +327,7 @@ body{
 
 .text-received{
     width:250px;
-    background-color: var(--color-white);
+    background-color: var( --color-received-message);
     border-radius: 10px;
     padding: 10px;
     float: left;
@@ -326,6 +350,21 @@ body{
 .fa-microphone:active{
     color: red;
 }
+
+/* darkmode */
+.dark-mode {
+        --color-white: #1a1a1a;
+        --color-dark-text: #ffffff;
+        --color-dark-grey: #7a7a7a;
+        --color-text-grey: #c7c7c7;
+        --color-headers: #585858;
+        --color-contact-hover: #969696;
+        --color-light-icons: #b1b1b1;
+        --color-sent-message: #d5f9ba;
+        --color-received-message:white;
+        --color-notification: #8edafc;
+        --background: linear-gradient(0deg, rgb(8, 8, 8) 85%, rgba(0,150,136,1) 85%); 
+  }
 
 @media screen and (max-width: 1024px) {
     body{

@@ -195,7 +195,9 @@ createApp({
             newMessage: '',
             activeContactId: null, //obj
             showChat:false,
-            
+            darkMode:false,
+            isLargerFont: false,
+            isSmallFont: false,
 
         }
     },
@@ -274,7 +276,19 @@ createApp({
       closeChat() {
         this.showChat = false;
         this.activeContactId = null;
-      }
+      },
+      toggleDarkMode() {
+        this.darkMode = !this.darkMode;
+        console.log(this.darkMode);
+      },
+
+      toggleFontSize() {
+        this.isLargerFont = !this.isLargerFont;
+      },
+
+      toggleFontSizeS() {
+        this.isSmallFont = !this.isSmallFont;
+      },
             
     },
 

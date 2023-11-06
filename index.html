@@ -27,7 +27,20 @@
       <h1>Bollzapp</h1>
     </div>
     <div id="app">
-      <div class="wrapper">
+      <div class="wrapper" :class="{ 'dark-mode': darkMode, 'larger-font': isLargerFont, 'smaller-font': isSmallFont }">
+        <div class="d-flex"> 
+          <div class="icon mx-5 w-75">
+          <i class="fa-solid fa-circle-half-stroke text-darkmode" @click="toggleDarkMode">DarkMode</i>
+        </div>
+        <div class="icon  mx-2" @click="toggleFontSize">
+          <i class="fa-solid fa-font fa-xl text-darkmode"></i>
+        </div>
+        <div class="icon  mx-2" @click="toggleFontSizeS">
+          <i class="fa-solid fa-font fa-xs text-darkmode"></i>
+        </div>
+      </div>
+       
+        
         <div class="container h-100">
           <div class="row h-100 flex-nowrap">
             <!-- COLONNA LISTA CONTATTI -->
@@ -67,7 +80,7 @@
                 <div class="col-12">
                   <div class="input-group py-2 flex-nowrap border-0">
                     <span class="input-group-text border-0 bg-transparent"
-                      ><i class="fa-solid fa-magnifying-glass"></i>
+                      ><i class="fa-solid fa-magnifying-glass icon"></i>
                     </span>
                     <input
                       type="text"
@@ -202,7 +215,7 @@
                           <div class="px-3 py-2">
                             <a
                               href="#"
-                              class="text-decoration-none text-black"
+                              class="text-decoration-none "
                               @click="deleteMessage(message)"
                               >Cancella messaggio</a
                             ><br />
